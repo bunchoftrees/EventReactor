@@ -1,8 +1,5 @@
-using Persistence;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MediatR;
 using Application.Activities;
 
 namespace API.Controllers
@@ -18,7 +15,7 @@ namespace API.Controllers
         [HttpGet("{id}")] //api/activities/guid
         public async Task<ActionResult<Activity>> GetActivity(Guid id)
         {
-            return Ok();
+            return await Mediator.Send(new Details.Query{Id = id});
         }
     }
 }
