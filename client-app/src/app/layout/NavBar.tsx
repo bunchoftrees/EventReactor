@@ -5,8 +5,8 @@ export default function NavBar(){
     return (
         <Menu inverted fixed='top'>
             <Container>
-                <Menu.Item header>
-                    <img src="/assets/logo.png" alt="logo" />
+                <Menu.Item>
+                    <img src="/assets/logo.png" alt="logo"style={{marginRight: '10px'}} />
                     Reactor
                 </Menu.Item>
                 <Menu.Item name="Activities" />
