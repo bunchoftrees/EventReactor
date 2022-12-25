@@ -11,7 +11,7 @@ export default function NavBar({openForm}: Props){
             <Container fluid>
                 <Menu.Item>
                     <img src='/assets/logo.png' alt='logo'style={{marginRight: '10px'}} />
-                    Reactor
+                    React:Events
                 </Menu.Item>
                 <Menu.Item name='Activities' />
                 <Menu.Item>
