@@ -4,7 +4,7 @@ import { Button, Container, Menu } from "semantic-ui-react";
 export default function NavBar(){
     return (
         <Menu inverted fixed='top'>
-            <Container>
+            <Container fluid>
                 <Menu.Item>
                     <img src="/assets/logo.png" alt="logo"style={{marginRight: '10px'}} />
                     Reactor
