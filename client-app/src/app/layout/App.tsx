@@ -14,8 +14,6 @@ function App() {
     //const {selectedActivity} = activityStore;
 
     const [activities, setActivities] = useState<Activity[]>([]);
-    const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
-    const [editMode, setEditMode] = useState(false);
     const [submitting, setSubmitting] = useState(false);
 
     useEffect(() => {

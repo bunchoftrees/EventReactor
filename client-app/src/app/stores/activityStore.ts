@@ -1,5 +1,4 @@
 import { makeAutoObservable } from 'mobx';
-import { StepTitleProps } from 'semantic-ui-react';
 import agent from '../api/agent';
 import { Activity } from '../models/activity';
 
