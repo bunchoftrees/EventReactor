@@ -1,7 +1,7 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import agent from '../api/agent';
 import { Activity } from '../models/activity';
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export default class ActivityStore {
     activityRegistry = new Map<string, Activity>();
@@ -15,14 +15,17 @@ export default class ActivityStore {
     }
 
     get activitiesByDate() {
-        return Array.from(this.activityRegistry.values()).sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
+        return Array.from(this.activityRegistry.values()).sort(
+            (a, b) => Date.parse(a.date) - Date.parse(b.date)
+        );
     }
 
     loadActivities = async () => {
+        this.setLoadingInitial(true);
         try {
             const activities = await agent.Activities.list();
             activities.forEach((activity) => {
-                this.setActivity(activity)
+                this.setActivity(activity);
             });
             this.setLoadingInitial(false);
         } catch (error) {
@@ -39,6 +42,7 @@ export default class ActivityStore {
             try {
                 activity = await agent.Activities.details(id);
                 this.setActivity(activity);
+                this.selectedActivity = activity;
                 this.setLoadingInitial(false);
             } catch (error) {
                 console.log(error);
@@ -70,14 +74,14 @@ export default class ActivityStore {
                 this.selectedActivity = activity;
                 this.editMode = false;
                 this.loading = false;
-            })
+            });
         } catch (error) {
             console.log(error);
             runInAction(() => {
                 this.loading = false;
-            })
+            });
         }
-    }
+    };
 
     updateActivity = async (activity: Activity) => {
         this.loading = true;
@@ -88,14 +92,12 @@ export default class ActivityStore {
                 this.selectedActivity = activity;
                 this.editMode = false;
                 this.loading = false;
-            })
+            });
         } catch (error) {
             console.log(error);
-            runInAction(() => 
-                this.loading = false
-            );
+            runInAction(() => (this.loading = false));
         }
-    }
+    };
 
     deleteActivity = async (id: string) => {
         this.loading = true;
@@ -104,12 +106,12 @@ export default class ActivityStore {
             runInAction(() => {
                 this.activityRegistry.delete(id);
                 this.loading = false;
-            })
+            });
         } catch (error) {
             console.log(error);
             runInAction(() => {
                 this.loading = false;
-            })
+            });
         }
-    }
+    };
 }
