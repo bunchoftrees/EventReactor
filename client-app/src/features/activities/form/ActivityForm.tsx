@@ -9,7 +9,7 @@ import { useStore } from '../../../app/stores/store';
 export default observer(function ActivityForm() {
     
 	const {activityStore} = useStore();
-	const {selectedActivity, createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore;
+	const {createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore;
 
     const {id} = useParams();
 
