@@ -33,12 +33,10 @@ export default function ActivityListItem({activity}: Props) {
                     </Item>
                 </Item.Group>
             </Segment>
-            <Segment>
-                <span>
-                    <Icon name='clock' /> {activity.date}
-                    <Icon name='marker' /> {activity.venue}
-                </span>
-            </Segment>
+            <Segment.Group horizontal>
+                    <Segment textAlign='left'><Icon name='clock' /> {activity.date}</Segment>
+                    <Segment textAlign='left'><Icon name='marker' /> {activity.venue}</Segment>
+            </Segment.Group>
             <Segment secondary>
                 Attendees go here
             </Segment>

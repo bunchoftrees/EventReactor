@@ -11,7 +11,7 @@ export default function NavBar(){
                     Reactor:Events
                 </Menu.Item>
                 <Menu.Item as={NavLink} to='/activities' name='Activities' />
-                <Menu.Item>
+                <Menu.Item position='right'>
                     <Button as={NavLink} to='/createActivity' inverted content='Create Activity'/>
                 </Menu.Item>
             </Container>
