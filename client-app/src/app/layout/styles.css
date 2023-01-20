@@ -10,3 +10,7 @@ body {
     rgb(234, 201, 24) 89%
   ) !important;
 }
+
+.ui.horizontal.segments>.segment {
+  background-color: #fff;
+}
